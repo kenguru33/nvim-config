@@ -1,4 +1,9 @@
-vim.notify = require("notify")
+-- vim.notify = require("notify")
+Status_OK, vim.notify = pcall(require, "notify")
+
+if Status_OK then
+	return
+end
 local set = vim.opt
 
 set.expandtab = true

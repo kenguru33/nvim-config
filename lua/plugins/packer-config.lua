@@ -3,7 +3,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	print("Bootstrapping packer. Please close and reopen Neovim.")
-	packer_bootstrap = fn.system({
+	Packer_Bootstrap = fn.system({
 		"git",
 		"clone",
 		"--depth",
@@ -27,8 +27,9 @@ if not status_ok then
 	return
 end
 
-return require("packer").startup(function(use)
+return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
+	use("rcarriga/nvim-notify")
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("EdenEast/nightfox.nvim")
 	use({
@@ -45,12 +46,10 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
 	use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
 	use("L3MON4D3/LuaSnip") -- Snippets plugin
-
+	use("onsails/lspkind-nvim")
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("onsails/lspkind-nvim")
 	use("tamago324/nlsp-settings.nvim")
-	use("rcarriga/nvim-notify")
 	use({
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
@@ -59,7 +58,7 @@ return require("packer").startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("nvim-treesitter/nvim-treesitter-refactor")
+	use({ "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" })
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
@@ -69,7 +68,7 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("sunjon/shade.nvim")
 
-	if packer_bootstrap then
+	if Packer_Bootstrap then
 		require("packer").sync()
 	end
 end)

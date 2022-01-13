@@ -1,4 +1,7 @@
-local lsp_installer = require("nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+	return
+end
 
 local function on_attach(client, bufnr)
 	local function buf_set_keymap(...)

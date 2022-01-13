@@ -1,4 +1,8 @@
-require("lualine").setup({
+local cmp_status_ok, lualine = pcall(require, "lualine")
+if not cmp_status_ok then
+	return
+end
+lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
@@ -26,6 +30,3 @@ require("lualine").setup({
 	tabline = {},
 	extensions = { "nvim-tree" },
 })
---vim.cmd(
---	[[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]
---)

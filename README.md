@@ -14,7 +14,7 @@ Neovim configuration with Lua
 
 ## Installation
 
-_Prerequirements_
+**Prerequirements**
 ripgrep (rg) - used by telescope
 
 ```bash

@@ -12,8 +12,6 @@ Neovim configuration with Lua
 - Fuzzy finder functionality with Telescope
 - Nice looking :-)
 
-
-
 ![screenshot.png](https://github.com/kenguru33/nvim-config/blob/master/screenshot.png)
 
 ## Installation
@@ -65,6 +63,7 @@ brew install neovim
 **NeoVim Setup**
 
 Pull config from git:
+
 ```bash
 git clone https://github.com/kenguru33/nvim-config.git ~/.config/nvim
 ```
@@ -77,7 +76,7 @@ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 Congratulation! You now have å fully configured nvim setup.
 
-Start nvim 
+Start nvim
 
 ```bash
 nvim

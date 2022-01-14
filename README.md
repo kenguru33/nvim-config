@@ -12,9 +12,13 @@ Neovim configuration with Lua
 - Fuzzy finder functionality with Telescope
 - Nice looking :-)
 
+![](/Users/bernt/Library/Application%20Support/marktext/images/2022-01-14-12-20-16-image.png)
+
 ## Installation
 
 **Prerequirements**
+
+
 ripgrep (rg) - used by telescope
 
 ```bash
@@ -57,13 +61,19 @@ NeoVim
 brew install neovim
 ```
 
-First time setup, run
+**NeoVim Setup**
+
+Run headless installation
 
 ```bash
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
 
-Start using nvim
+Congratulation! You now have å fully configured nvim setup.
+
+
+
+Start nvim 
 
 ```bash
 nvim

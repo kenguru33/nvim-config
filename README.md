@@ -14,7 +14,7 @@ Neovim configuration with Lua
 
 
 
-![screenshot.png](/Users/bernt/.config/nvim/screenshot.png)
+![screenshot.png](https://github.com/kenguru33/nvim-config/blob/master/screenshot.png)
 
 ## Installation
 

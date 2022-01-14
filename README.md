@@ -14,9 +14,57 @@ Neovim configuration with Lua
 
 ## Installation
 
+_Prerequirements_
+ripgrep (rg) - used by telescope
+
 ```bash
-cd ~/.config/nvim
-git clone https://github.com/kenguru33/nvim-config nvim
-nvim -u lua/plugins/packer-config.lua
+brew install rg
+```
+
+git - packer
+
+```bash
+brew install git
+```
+
+nodejs
+
+```bash
+brew install node
+```
+
+Typescript compiler (tsc) - Used by tsserver
+
+```bash
+npm install -g tsc
+```
+
+stylua - lua formatting
+
+```bash
+brew install stylua
+```
+
+prettier - formatting for many language
+
+```bash
+npm install -g prettier
+```
+
+NeoVim
+
+```bash
+brew install neovim
+```
+
+First time setup, run
+
+```bash
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+```
+
+Start using nvim
+
+```bash
 nvim
 ```

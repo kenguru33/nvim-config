@@ -10,6 +10,7 @@ Neovim configuration with Lua
 - Linting
 - Syntax highlighting with Treesitter
 - Fuzzy finder functionality with Telescope
+- UndoTree
 - Nice looking :-)
 
 ![screenshot.png](https://github.com/kenguru33/nvim-config/blob/master/screenshot.png)

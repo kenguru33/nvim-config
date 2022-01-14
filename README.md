@@ -64,6 +64,11 @@ brew install neovim
 
 **NeoVim Setup**
 
+Pull config from git:
+```bash
+git clone https://github.com/kenguru33/nvim-config.git ~/.config/nvim
+```
+
 Run headless installation
 
 ```bash

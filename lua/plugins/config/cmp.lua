@@ -1,12 +1,3 @@
-packer.use({
-	"hrsh7th/nvim-cmp",
-	requires = {
-		"hrsh7th/cmp-nvim-lsp",
-		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
-		"onsails/lspkind-nvim",
-	},
-	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
@@ -60,5 +51,3 @@ packer.use({
 				}),
 			},
 		})
-	end,
-})

@@ -1,5 +1,2 @@
-require("bootstrap")
 require("settings")
 require("plugins")
--- require("packer.loader")
--- require("packer.plugins")

@@ -2,7 +2,17 @@ local get_config = function(name)
 	return string.format('require("plugins/config/%s")', name)
 end
 
-return require("packer").startup(function(use)
+local packer = require("packer")
+-- Have packer use a popup window
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
+return packer.startup(function(use)
 	-- Plugins start
 	use({
 		"wbthomason/packer.nvim",

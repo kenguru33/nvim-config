@@ -103,6 +103,12 @@ return packer.startup(function(use)
 		requires = {},
 		config = get_config("undotree"),
 	})
+
+	use({
+		"b0o/schemastore.nvim",
+		requires = {},
+		config = get_config("schemastore"),
+	})
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

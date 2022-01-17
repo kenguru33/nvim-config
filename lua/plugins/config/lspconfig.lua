@@ -1,4 +1,6 @@
 local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
+
 local function on_attach(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -9,6 +11,12 @@ local function on_attach(client, bufnr)
 
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+	local global_capabilities = vim.lsp.protocol.make_client_capabilities()
+	global_capabilities.textDocument.completion.completionItem.snippetSupport = true
+	lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+		capabilities = global_capabilities,
+	})
 
 	-- Disable formatting for tsserver
 	if client.name == "tsserver" then

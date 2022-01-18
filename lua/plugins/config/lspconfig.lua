@@ -92,7 +92,6 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", custom_opts, opts)
 	end
 
-	-- FIX: This is not working
 	if server.name == "jsonls" then
 		local custom_opts = {
 			settings = {
@@ -104,5 +103,17 @@ lsp_installer.on_server_ready(function(server)
 		opts = vim.tbl_deep_extend("force", custom_opts, opts)
 	end
 
+	if server.name == "yamlls" then
+		local custom_opts = {
+			settings = {
+				yaml = {
+					schemas = {
+						["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.23.1-standalone-strict/all.json"] = "/*.k8s.yaml",
+					},
+				},
+			},
+		}
+		opts = vim.tbl_deep_extend("force", custom_opts, opts)
+	end
 	server:setup(opts)
 end)

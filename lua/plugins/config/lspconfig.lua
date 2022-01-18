@@ -12,12 +12,6 @@ local function on_attach(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local global_capabilities = vim.lsp.protocol.make_client_capabilities()
-	global_capabilities.textDocument.completion.completionItem.snippetSupport = true
-	lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-		capabilities = global_capabilities,
-	})
-
 	-- Disable formatting for tsserver
 	if client.name == "tsserver" then
 		client.resolved_capabilities.document_formatting = false
@@ -52,6 +46,7 @@ local servers = {
 	"tsserver",
 	"sumneko_lua",
 	"yamlls",
+	"jsonls",
 }
 
 for _, name in pairs(servers) do
@@ -63,6 +58,13 @@ for _, name in pairs(servers) do
 		end
 	end
 end
+
+local global_capabilities = vim.lsp.protocol.make_client_capabilities()
+global_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+	capabilities = global_capabilities,
+})
 
 lsp_installer.on_server_ready(function(server)
 	-- Specify the default options which we'll use to setup all servers

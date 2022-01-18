@@ -108,7 +108,7 @@ lsp_installer.on_server_ready(function(server)
 			settings = {
 				yaml = {
 					schemas = {
-						["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+						["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.23.1-standalone-strict/all.json"] = "/*.k8s.yaml",
 					},
 				},
 			},

@@ -4,7 +4,9 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
+			-- luasnip
 			require("luasnip").lsp_expand(args.body)
+			-- TODO: Add more snippets here.
 		end,
 	},
 	mapping = {

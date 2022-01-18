@@ -1,8 +1,3 @@
-packer.use({
-	"romgrk/barbar.nvim",
-	requires = "kyazdani42/nvim-web-devicons",
-})
-
 -- Set barbar's options
 vim.g.bufferline = {
 	-- Enable/disable animations

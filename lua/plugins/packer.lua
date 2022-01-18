@@ -114,6 +114,11 @@ return packer.startup(function(use)
 		config = get_config("schemastore"),
 	})
 
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = get_config("gitsigns"),
+	})
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

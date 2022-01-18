@@ -28,4 +28,6 @@ set.signcolumn = "yes"
 set.mouse = "a"
 
 set.undofile = true
+set.swapfile = false
+set.backup = false
 set.clipboard = "unnamedplus"

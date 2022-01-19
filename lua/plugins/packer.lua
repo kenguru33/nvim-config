@@ -119,6 +119,13 @@ return packer.startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 		config = get_config("gitsigns"),
 	})
+
+	use({
+		"terrortylor/nvim-comment",
+		requires = {},
+		config = get_config("comments"),
+	})
+
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

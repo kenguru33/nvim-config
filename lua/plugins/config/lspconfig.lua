@@ -12,8 +12,8 @@ vim.diagnostic.config({
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
-	{ name = "DiagnosticSignHint", text = "" },
-	{ name = "DiagnosticSignInfo", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
 }
 for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -128,7 +128,7 @@ lsp_installer.on_server_ready(function(server)
 						globals = { "vim" },
 					},
 					workspace = {
-            preloadFileSize = 5000,
+						preloadFileSize = 500,
 						-- Make the server aware of Neovim runtime files
 						library = vim.api.nvim_get_runtime_file("", true),
 					},

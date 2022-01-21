@@ -126,6 +126,17 @@ return packer.startup(function(use)
 		config = get_config("comments"),
 	})
 
+	use({
+		"ggandor/lightspeed.nvim",
+		requires = {},
+		config = get_config("lightspeed"),
+	})
+
+	use({
+		use("folke/lua-dev.nvim"),
+		requries = {},
+		config = get_config("lua-dev"),
+	})
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

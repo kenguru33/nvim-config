@@ -18,7 +18,7 @@ set.termguicolors = true
 set.cmdheight = 1
 
 set.number = true
-set.relativenumber = true
+set.relativenumber = false
 set.cursorline = true
 
 set.hidden = true

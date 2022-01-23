@@ -126,6 +126,29 @@ return packer.startup(function(use)
 		config = get_config("comments"),
 	})
 
+	use({
+		"ggandor/lightspeed.nvim",
+		requires = {},
+		config = get_config("lightspeed"),
+	})
+
+	-- 	use({
+	-- 		"folke/lua-dev.nvim",
+	-- 		requires = {},
+	-- 		config = get_config("lua-dev"),
+	-- 	})
+
+	use({
+		"puremourning/vimspector",
+		requires = {},
+		config = get_config("vimspector"),
+	})
+
+	use({
+		"szw/vim-maximizer",
+		requires = {},
+		config = get_config("vim-maximizer"),
+	})
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

@@ -55,4 +55,8 @@ map("n", "<C-S-Down>", ":resize +2<CR>", opts)
 map("n", "<C-S-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-S-Right>", ":vertical resize +2<CR>", opts)
 
-map("n", "<leader>u", ":UndotreeToggle<CR>", opts)
+-- undotree
+map("n", "<leader>u", ":UndotreeToggle<>", opts)
+
+-- maximizer
+map("n", "<leader>m", ":MaximizerToggle<CR>", opts)

@@ -133,11 +133,17 @@ return packer.startup(function(use)
 	})
 
 	use({
-		use("folke/lua-dev.nvim"),
-		requries = {},
+		"folke/lua-dev.nvim",
+		requires = {},
 		config = get_config("lua-dev"),
 	})
+
 	use({
+		"puremourning/vimspector",
+		requires = {},
+		config = get_config("vimspector"),
+	})
+
 	use({
 		"szw/vim-maximizer",
 		requires = {},

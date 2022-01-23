@@ -132,11 +132,11 @@ return packer.startup(function(use)
 		config = get_config("lightspeed"),
 	})
 
-	use({
-		"folke/lua-dev.nvim",
-		requires = {},
-		config = get_config("lua-dev"),
-	})
+	-- 	use({
+	-- 		"folke/lua-dev.nvim",
+	-- 		requires = {},
+	-- 		config = get_config("lua-dev"),
+	-- 	})
 
 	use({
 		"puremourning/vimspector",

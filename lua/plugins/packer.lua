@@ -137,6 +137,12 @@ return packer.startup(function(use)
 		requries = {},
 		config = get_config("lua-dev"),
 	})
+	use({
+	use({
+		"szw/vim-maximizer",
+		requires = {},
+		config = get_config("vim-maximizer"),
+	})
 	-- Plugins Ends
 
 	if Packer_Bootstrap then

@@ -110,36 +110,36 @@ lsp_installer.on_server_ready(function(server)
 	}
 
 	if server.name == "sumneko_lua" then
-		-- 		local runtime_path = vim.split(package.path, ";")
-		-- 		table.insert(runtime_path, "lua/?.lua")
-		-- 		table.insert(runtime_path, "lua/?/init.lua")
-		--
-		-- 		local custom_opts = {
-		-- 			settings = {
-		-- 				Lua = {
-		-- 					runtime = {
-		-- 						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-		-- 						version = "LuaJIT",
-		-- 						-- Setup your lua path
-		-- 						path = runtime_path,
-		-- 					},
-		-- 					diagnostics = {
-		-- 						-- Get the language server to recognize the `vim` global
-		-- 						globals = { "vim" },
-		-- 					},
-		-- 					workspace = {
-		-- 						preloadFileSize = 500,
-		-- 						-- Make the server aware of Neovim runtime files
-		-- 						library = vim.api.nvim_get_runtime_file("", true),
-		-- 					},
-		-- 					-- Do not send telemetry data containing a randomized but unique identifier
-		-- 					telemetry = {
-		-- 						enable = false,
-		-- 					},
-		-- 				},
-		-- 			},
-		--		}
-		local custom_opts = require("lua-dev").setup()
+		local runtime_path = vim.split(package.path, ";")
+		table.insert(runtime_path, "lua/?.lua")
+		table.insert(runtime_path, "lua/?/init.lua")
+
+		local custom_opts = {
+			settings = {
+				Lua = {
+					runtime = {
+						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+						version = "LuaJIT",
+						-- Setup your lua path
+						path = runtime_path,
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = { "vim" },
+					},
+					workspace = {
+						preloadFileSize = 500,
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+				},
+			},
+		}
+		-- local custom_opts = require("lua-dev").setup()
 		opts = vim.tbl_deep_extend("force", custom_opts, opts)
 	end
 

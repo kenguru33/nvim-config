@@ -68,7 +68,7 @@ local function on_attach(client, bufnr)
 	buf_set_keymap(
 		"n",
 		"<space>e",
-		'<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>',
+		'<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>',
 		opts
 	)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
@@ -114,6 +114,8 @@ lsp_installer.on_server_ready(function(server)
 		table.insert(runtime_path, "lua/?.lua")
 		table.insert(runtime_path, "lua/?/init.lua")
 
+		vim.g.lua_use_love2s = true
+
 		local custom_opts = {
 			settings = {
 				Lua = {
@@ -131,6 +133,7 @@ lsp_installer.on_server_ready(function(server)
 						preloadFileSize = 500,
 						-- Make the server aware of Neovim runtime files
 						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
 					},
 					-- Do not send telemetry data containing a randomized but unique identifier
 					telemetry = {

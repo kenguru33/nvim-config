@@ -2,10 +2,10 @@ local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 
 vim.diagnostic.config({
-	virtual_text = false,
+	virtual_text = true,
 	signs = true,
 	underline = true,
-	update_in_insert = true,
+	update_in_insert = false,
 	severity_sort = true,
 })
 
@@ -27,10 +27,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "rounded",
 })
 vim.o.updatetime = 1000
--- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
-vim.cmd(
-	[[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(0, { focus = false, scope = "line", border = "single" })]]
-)
+-- Auto show diag on cursor hold
+-- vim.cmd(
+-- 	[[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(0, { focus = false, scope = "line", border = "single" })]]
+-- )
 
 local function on_attach(client, bufnr)
 	local function buf_set_keymap(...)
@@ -45,6 +45,11 @@ local function on_attach(client, bufnr)
 
 	-- Disable formatting for tsserver
 	if client.name == "tsserver" then
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end
+
+	if client.name == "jsonls" then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
@@ -115,6 +120,7 @@ lsp_installer.on_server_ready(function(server)
 		table.insert(runtime_path, "lua/?/init.lua")
 
 		local custom_opts = {
+
 			settings = {
 				Lua = {
 					runtime = {
@@ -131,6 +137,8 @@ lsp_installer.on_server_ready(function(server)
 						preloadFileSize = 500,
 						-- Make the server aware of Neovim runtime files
 						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = true,
+						userThirdParty = "${3rd}/love2d/library",
 					},
 					-- Do not send telemetry data containing a randomized but unique identifier
 					telemetry = {

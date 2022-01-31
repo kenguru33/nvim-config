@@ -48,10 +48,21 @@ cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format({
 			with_text = true,
+			menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
 			maxwidth = 50,
 			before = function(_, vim_item)
 				return vim_item
 			end,
 		}),
+	},
+	experimental = {
+		native_menu = false,
+		ghost_text = true,
 	},
 })

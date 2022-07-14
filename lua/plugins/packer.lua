@@ -126,9 +126,10 @@ return packer.startup(function(use)
 	})
 
 	use({
-		"ggandor/lightspeed.nvim",
+		"phaazon/hop.nvim",
+		branch = "v2",
 		requires = {},
-		config = get_config("lightspeed"),
+		config = get_config("hop"),
 	})
 
 	-- 	use({

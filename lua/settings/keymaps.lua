@@ -46,7 +46,7 @@ map("n", "<Space>bl", ":BufferOrderByLanguage<CR>", opts)
 -- :BarbarDisable - very bad command, should never be used
 
 -- telescope mappings --
-map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+map("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
 map("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 
 -- Resize with arrows
@@ -60,3 +60,29 @@ map("n", "<leader>u", ":UndotreeToggle<>", opts)
 
 -- maximizer
 map("n", "<leader>m", ":MaximizerToggle<CR>", opts)
+
+-- hop
+vim.api.nvim_set_keymap(
+	"",
+	"f",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
+	{}
+)
+vim.api.nvim_set_keymap(
+	"",
+	"F",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
+	{}
+)
+vim.api.nvim_set_keymap(
+	"",
+	"t",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>",
+	{}
+)
+vim.api.nvim_set_keymap(
+	"",
+	"T",
+	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
+	{}
+)

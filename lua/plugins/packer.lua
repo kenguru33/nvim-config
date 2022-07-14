@@ -27,11 +27,10 @@ return packer.startup(function(use)
 	})
 
 	use({
-		"EdenEast/nightfox.nvim",
-		requires = {},
-		config = get_config("nightfox"),
+		"folke/tokyonight.nvim",
+		requries = {},
+		config = get_config("tokyonight"),
 	})
-
 	use({
 		"williamboman/nvim-lsp-installer",
 		requires = "neovim/nvim-lspconfig",
